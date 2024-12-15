@@ -1,8 +1,0 @@
-digraph "Threads::Threads" {
-node [
-  fontsize = "12"
-];
-    "node1" [ label = "Threads::Threads", shape = pentagon ];
-    "node0" [ label = "flint", shape = octagon ];
-    "node0" -> "node1"  // flint -> Threads::Threads
-}
