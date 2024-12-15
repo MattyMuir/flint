@@ -11,7 +11,9 @@
 
 #define _GNU_SOURCE
 #define ulong ulongxx /* fixup for Cygwin */
+#if FLINT_USES_PTHREAD
 #include <sched.h>
+#endif
 #undef ulong
 
 #include "thread_pool.h"

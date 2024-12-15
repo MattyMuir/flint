@@ -29,7 +29,7 @@ extern "C" {
 slong mpoly_divide_threads(slong n, double la, double lb);
 
 #ifdef _MSC_VER
-# define DECLSPEC_IMPORT __declspec(dllimport)
+# define DECLSPEC_IMPORT
 #else
 # define DECLSPEC_IMPORT
 #endif

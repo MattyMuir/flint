@@ -32,8 +32,10 @@
 
 #ifdef _MSC_VER
 # if defined(FLINT_BUILD_DLL)
-#  define FLINT_DLL __declspec(dllexport)
+//#  define FLINT_DLL __declspec(dllexport)
+#  define FLINT_DLL
 # else
-#  define FLINT_DLL __declspec(dllimport)
+//#  define FLINT_DLL __declspec(dllimport)
+#  define FLINT_DLL
 # endif
 #endif

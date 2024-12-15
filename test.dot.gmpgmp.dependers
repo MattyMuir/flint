@@ -1,0 +1,8 @@
+digraph "gmp::gmp" {
+node [
+  fontsize = "12"
+];
+    "node2" [ label = "gmp::gmp", shape = septagon ];
+    "node0" [ label = "flint", shape = octagon ];
+    "node0" -> "node2"  // flint -> gmp::gmp
+}

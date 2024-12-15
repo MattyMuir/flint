@@ -25,7 +25,7 @@
 extern "C" {
 #endif
 
-#if defined(__GNUC__)
+#if defined(__GNUC__) || defined(__clang__)
 
 /* Trailing and leading zeros */
 # if FLINT_LONG_LONG

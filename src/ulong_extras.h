@@ -79,7 +79,7 @@ ulong n_clog(ulong n, ulong b);
 ulong n_clog_2exp(ulong n, ulong b);
 
 #ifdef _MSC_VER
-# define DECLSPEC_IMPORT __declspec(dllimport)
+# define DECLSPEC_IMPORT
 #else
 # define DECLSPEC_IMPORT
 #endif

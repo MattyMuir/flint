@@ -13,7 +13,7 @@
 #include "fmpz.h"
 #include "gr.h"
 
-#ifdef __GNUC__
+#if defined(__GNUC__) || defined(__clang__)
 # define memcpy __builtin_memcpy
 # define strlen __builtin_strlen
 #else

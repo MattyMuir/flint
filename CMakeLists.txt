@@ -11,6 +11,7 @@
 #
 
 cmake_minimum_required(VERSION 3.22)
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 if(NOT WIN32)
     message(WARNING "Detected system is not Windows. Please use the Autotools configuration along with the Makefile instead as it is more up-to-date. Read INSTALL.")
@@ -399,6 +400,7 @@ target_link_libraries(flint PUBLIC
     mpfr::mpfr
     ${PThreads_LIBRARIES}
 )
+set_property(TARGET flint PROPERTY MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
 
 if(FLINT_USES_BLAS)
     target_link_libraries(flint PUBLIC CBLAS::CBLAS)
@@ -440,6 +442,13 @@ endif()
 if(ENABLE_AVX512)
     target_compile_options(flint PUBLIC "${avx512_flag}")
 endif()
+
+# Static C runtime
+string(REPLACE "-D_DLL" "" CMAKE_C_FLAGS_DEBUG "${CMAKE_C_FLAGS_DEBUG}")
+string(REPLACE "-D_DLL" "" CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG}")
+string(REPLACE "-D_DLL" "" CMAKE_C_FLAGS_RELEASE "${CMAKE_C_FLAGS_RELEASE}")
+string(REPLACE "-D_DLL" "" CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE}")
+set(MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
 
 # Versioning
 
@@ -486,7 +495,7 @@ if (IPO_SUPPORTED AND "${CMAKE_INTERPROCEDURAL_OPTIMIZATION}" STREQUAL "")
     set_target_properties(flint PROPERTIES INTERPROCEDURAL_OPTIMIZATION TRUE)
 endif()
 
-if(NOT MSVC)
+if(NOT WIN32)
 	target_link_libraries(flint PUBLIC m)
 endif()
 

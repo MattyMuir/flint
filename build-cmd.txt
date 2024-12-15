@@ -1,0 +1,12 @@
+cmake -G Ninja
+-D CMAKE_TOOLCHAIN_FILE="C:/vcpkg/scripts/buildsystems/vcpkg.cmake"
+-D VCPKG_TARGET_TRIPLET="x64-windows-static"
+-D CMAKE_C_COMPILER="C:/Program Files/LLVM/bin/clang.exe"
+-D CMAKE_CXX_COMPILER="C:/Program Files/LLVM/bin/clang.exe"
+-D CMAKE_BUILD_TYPE="Release"
+-D CMAKE_INSTALL_PREFIX="C:/sdks/flintinstall"
+-D BUILD_SHARED_LIBS="OFF"
+-D FLINT_USES_PTHREAD="OFF"
+-B ./build
+
+cmake -G Ninja -D CMAKE_TOOLCHAIN_FILE="C:/vcpkg/scripts/buildsystems/vcpkg.cmake" -D VCPKG_TARGET_TRIPLET="x64-windows-static" -D CMAKE_C_COMPILER="C:/Program Files/LLVM/bin/clang.exe" -D CMAKE_CXX_COMPILER="C:/Program Files/LLVM/bin/clang.exe" -D CMAKE_BUILD_TYPE="Release" -D CMAKE_INSTALL_PREFIX="C:/sdks/flintinstall" -D BUILD_SHARED_LIBS="OFF" -D FLINT_USES_PTHREAD="OFF" -B ./build --graphviz=test.dot
