@@ -8,6 +8,7 @@
 *.P
 *.ppm
 *.tmp
+*.dot
 */.deps/*
 src/fmpz/fmpz.c
 src/config.h
